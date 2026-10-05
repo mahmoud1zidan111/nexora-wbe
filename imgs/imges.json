@@ -1,0 +1,19 @@
+{
+  "imges": [
+    {
+      "id": 1,
+      "src": "https://res.cloudinary.com/dricl4jwn/image/upload/v1790389289/layer-3d-letter-n-logo_toqni0.png",
+      "alt": "logo img"
+    },
+    {
+      "id": 2,
+      "src": "https://res.cloudinary.com/dricl4jwn/image/upload/v1790393554/ChatGPT_Image_26_%D8%B3%D8%A8%D8%AA%D9%85%D8%A8%D8%B1_2026_06_30_31_%D8%B5_zmqvbj.png",
+      "alt": "Product 1"
+    },
+    {
+      "id": 3,
+      "src": "/images/product2.png",
+      "alt": "Product 2"
+    }
+  ]
+}
