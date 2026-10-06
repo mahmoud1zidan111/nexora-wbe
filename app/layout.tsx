@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   },
 
   icons: {
-    icon: "https://ik.imagekit.io/gmplak20xa/nexora/Gemini_Generated_Image_3aeekl3aeekl3aee%20(1).jfif",
+    icon: "https://res.cloudinary.com/dricl4jwn/image/upload/v1790389289/layer-3d-letter-n-logo_toqni0.png",
   },
 
   description:
