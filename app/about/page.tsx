@@ -4,7 +4,6 @@ import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
 import { PageContainer } from "@/components/layout/PageContainer";
 import { FinalCTA } from "@/components/sections/FinalCTA";
-import { SystemVisual } from "@/components/visual/SystemVisual";
 import { InfoCard } from "@/components/ui/Cards";
 import { capabilities, principles } from "@/data/content";
 import { useLanguage } from "@/components/i18n/LanguageProvider";
