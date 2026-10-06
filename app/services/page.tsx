@@ -67,7 +67,7 @@ export default function ServicesPage() {
             <div className="m-visual">
               <img
                 src="https://res.cloudinary.com/dricl4jwn/image/upload/v1790393554/ChatGPT_Image_26_%D8%B3%D8%A8%D8%AA%D9%85%D8%A8%D8%B1_2026_06_30_31_%D8%B5_zmqvbj.png"
-                alt=""
+                alt="Nexora software architecture and web development systems overview"
               />
             </div>
             <div>

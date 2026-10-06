@@ -6,7 +6,7 @@ import { useLanguage } from "@/components/i18n/LanguageProvider";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { ArrowRight01Icon } from "@hugeicons/core-free-icons";
 
-type FormState = "idle" | "loading" | "success";
+type FormState = "idle" | "loading" | "success" | "error";
 
 const fieldLabelClass =
   "!grid !gap-2.5 !font-[var(--font-mono)] !text-[12px] sm:!text-[13px] md:!text-[14px] !leading-[1.1] !font-bold !tracking-[0.1em] !text-[var(--text)]";
@@ -24,28 +24,76 @@ export function ContactForm() {
   const { t } = useLanguage();
   const [state, setState] = useState<FormState>("idle");
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [feedback, setFeedback] = useState("");
 
-  function submit(event: FormEvent<HTMLFormElement>) {
+  async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const form = new FormData(event.currentTarget);
+    const form = event.currentTarget;
+    const formData = new FormData(form);
     const nextErrors: Record<string, string> = {};
 
     ["name", "email", "service", "budget", "scope"].forEach((field) => {
-      if (!String(form.get(field) || "").trim()) {
+      if (!String(formData.get(field) || "").trim()) {
         nextErrors[field] = t("Required");
       }
     });
 
-    const email = String(form.get("email") || "");
+    const email = String(formData.get("email") || "").trim();
     if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       nextErrors.email = t("Invalid email");
     }
 
     setErrors(nextErrors);
-    if (Object.keys(nextErrors).length) return;
+    if (Object.keys(nextErrors).length) {
+      setState("error");
+      setFeedback("Please complete the required fields and fix any invalid input.");
+      return;
+    }
 
     setState("loading");
-    window.setTimeout(() => setState("success"), 700);
+    setFeedback("");
+
+    try {
+      const payload = new FormData();
+      payload.set("name", String(formData.get("name") || "").trim());
+      payload.set("email", email);
+      payload.set("company", String(formData.get("company") || "").trim());
+      payload.set("service", String(formData.get("service") || "").trim());
+      payload.set("budget", String(formData.get("budget") || "").trim());
+      payload.set("scope", String(formData.get("scope") || "").trim());
+
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        body: payload,
+      });
+
+      const result = (await response.json().catch(() => ({}))) as {
+        success?: boolean;
+        message?: string;
+      };
+
+      if (!response.ok || result.success !== true) {
+        throw new Error(
+          result.message ||
+            "Something went wrong while sending your message. Please try again later.",
+        );
+      }
+
+      form.reset();
+      setErrors({});
+      setState("success");
+      setFeedback(
+        "Thank you for contacting Nexora. We’ve received your request and will get back to you shortly.",
+      );
+    } catch (error) {
+      const message =
+        error instanceof Error && error.message
+          ? error.message
+          : "Something went wrong while sending your message. Please try again later.";
+
+      setState("error");
+      setFeedback(message);
+    }
   }
 
   return (
@@ -234,14 +282,16 @@ export function ContactForm() {
         </Button>
       </div>
 
-      {state === "success" ? (
+      {state === "success" || state === "error" ? (
         <p
-          className="col-span-full !mb-0 rounded-[6px] border border-[rgba(110,216,255,.18)] bg-[rgba(110,216,255,.06)] px-4 py-3 !text-[13px] !leading-[1.6] !text-[var(--ok)]"
-          role="status"
+          className={
+            state === "success"
+              ? "col-span-full !mb-0 rounded-[6px] border border-[rgba(110,216,255,.18)] bg-[rgba(110,216,255,.06)] px-4 py-3 !text-[13px] !leading-[1.6] !text-[var(--ok)]"
+              : "col-span-full !mb-0 rounded-[6px] border border-[rgba(255,114,114,.2)] bg-[rgba(255,114,114,.06)] px-4 py-3 !text-[13px] !leading-[1.6] !text-[var(--danger)]"
+          }
+          role={state === "success" ? "status" : "alert"}
         >
-          {t(
-            "Transmission received. A Nexora architect will review your packet.",
-          )}
+          {feedback}
         </p>
       ) : null}
     </form>

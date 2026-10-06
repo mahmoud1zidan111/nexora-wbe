@@ -6,8 +6,20 @@ import { Capabilities, Hero, Process, Products, SelectedWork, ServicesPreview, W
 import { FinalCTA } from "@/components/sections/FinalCTA";
 
 export const metadata: Metadata = {
-  title: "Nexora | Software Engineering & Digital Solutions Company",
-  description: "Nexora builds professional websites, web applications, custom software, and scalable digital products with technical precision.",
+  title:
+    "Nexora | Software Company in Cairo, Egypt | Web Development & Digital Solutions",
+  description:
+    "Nexora is a software company in Cairo, Egypt building custom software, web applications, SaaS products, website design, and digital transformation solutions.",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title:
+      "Nexora | Software Company in Cairo, Egypt | Web Development & Digital Solutions",
+    description:
+      "Nexora helps businesses launch scalable web platforms, custom software, and digital products with clear technical strategy and reliable delivery.",
+    url: "/",
+  },
 };
 
 export default function Home() {
