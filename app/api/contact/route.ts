@@ -2,21 +2,13 @@ import { NextRequest, NextResponse } from "next/server";
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-function normalize(value: unknown): string {
+function normalize(value: FormDataEntryValue | null): string {
   return typeof value === "string" ? value.trim() : "";
-}
-
-function redactSensitiveValues(message: string, values: string[]): string {
-  return values
-    .filter(Boolean)
-    .reduce((redacted, value) => redacted.split(value).join("[redacted]"), message)
-    .slice(0, 2000);
 }
 
 export async function POST(request: NextRequest) {
   try {
     const formData = await request.formData();
-
     const name = normalize(formData.get("name"));
     const email = normalize(formData.get("email"));
     const service = normalize(formData.get("service"));
@@ -48,7 +40,6 @@ export async function POST(request: NextRequest) {
     const forminitEndpoint = process.env.FORMINIT_ENDPOINT;
 
     if (!forminitToken || !forminitEndpoint) {
-      console.error("Forminit is not configured. Missing FORMINIT_TOKEN or FORMINIT_ENDPOINT.");
       return NextResponse.json(
         {
           success: false,
@@ -66,12 +57,6 @@ export async function POST(request: NextRequest) {
     payload.set("fi-select-service", service);
     payload.set("fi-select-budget", budget);
 
-    console.log("Forwarding form to Forminit:", {
-      endpoint: forminitEndpoint,
-      hasToken: Boolean(forminitToken),
-      fields: Array.from(payload.keys()),
-    });
-
     const response = await fetch(forminitEndpoint, {
       method: "POST",
       headers: {
@@ -81,38 +66,21 @@ export async function POST(request: NextRequest) {
       cache: "no-store",
     });
 
-    if (response.ok) {
-      console.log("Forminit accepted the submission successfully.");
-      return NextResponse.json({
-        success: true,
-        message: "Message sent successfully",
-      });
+    if (!response.ok) {
+      return NextResponse.json(
+        {
+          success: false,
+          message: "Unable to send your message. Please try again later.",
+        },
+        { status: 502 },
+      );
     }
 
-    const errorText = await response.text().catch(() => "");
-    console.error("Forminit request failed:", {
-      status: response.status,
-      statusText: response.statusText,
-      body: redactSensitiveValues(errorText, [
-        forminitToken,
-        name,
-        email,
-        company,
-        service,
-        budget,
-        scope,
-      ]),
+    return NextResponse.json({
+      success: true,
+      message: "Message sent successfully",
     });
-
-    return NextResponse.json(
-      {
-        success: false,
-        message: "Unable to send your message. Please try again later.",
-      },
-      { status: 502 },
-    );
-  } catch (error) {
-    console.error("Contact form submission error:", error);
+  } catch {
     return NextResponse.json(
       {
         success: false,

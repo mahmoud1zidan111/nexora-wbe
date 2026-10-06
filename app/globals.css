@@ -48,6 +48,20 @@ body {
   overflow-x: hidden;
 }
 
+.nexora-background {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  display: block;
+  pointer-events: none;
+}
+
+.site-content {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+}
+
 /* icon right-to-left  because of translation */
 html[dir="rtl"] .rtl-flip {
   transform: scaleX(-1);

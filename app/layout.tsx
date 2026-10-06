@@ -4,11 +4,10 @@ import Script from "next/script";
 import { Inter, Cairo } from "next/font/google";
 
 import { LanguageProvider } from "@/components/i18n/LanguageProvider";
+import { NexoraBackground } from "@/components/visual/NexoraBackground";
+import { ScrollMotion } from "@/components/visual/ScrollMotion";
+import { siteUrl } from "@/lib/seo";
 import "./globals.css";
-
-const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ??
-  (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3000");
 
 const inter = Inter({
   subsets: ["latin"],
@@ -116,10 +115,6 @@ export const metadata: Metadata = {
   ],
   alternates: {
     canonical: "/",
-    languages: {
-      "en-US": "/",
-      "ar-EG": "/",
-    },
   },
   robots: {
     index: true,
@@ -175,7 +170,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         suppressHydrationWarning
         className={`${inter.variable} ${cairo.variable}`}
       >
-        <LanguageProvider>{children}</LanguageProvider>
+        <NexoraBackground />
+        <ScrollMotion />
+        <div className="site-content">
+          <LanguageProvider>{children}</LanguageProvider>
+        </div>
         <Script
           id="nexora-structured-data"
           type="application/ld+json"

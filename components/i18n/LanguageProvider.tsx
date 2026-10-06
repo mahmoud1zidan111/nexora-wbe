@@ -405,10 +405,6 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
 
         if (translated) return translated;
 
-        if (process.env.NODE_ENV !== "production") {
-          console.warn(`[Nexora i18n] Missing Arabic translation: "${key}"`);
-        }
-
         return key;
       },
     }),
