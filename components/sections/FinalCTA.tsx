@@ -22,7 +22,10 @@ export function FinalCTA({ compact = false }: { compact?: boolean }) {
           className="w-full sm:w-auto auto !bg-[var(--accent-2)] !text-[#08111f] "
         >
           {t("Start a Project")}
-          <HugeiconsIcon icon={ArrowRight01Icon} className="align-middle" />
+          <HugeiconsIcon
+            icon={ArrowRight01Icon}
+            className="align-middle rtl-flip"
+          />
         </Button>
         <Button
           className="w-full sm:w-auto auto !bg-gray-900"
@@ -32,7 +35,9 @@ export function FinalCTA({ compact = false }: { compact?: boolean }) {
           {t("Explore Our Work")}
         </Button>
       </div>
-      <span className="terminal-line">SYS_STATUS // ACTIVE DISPATCH</span>
+      <span className="terminal-line">
+        {t("SYS_STATUS // ACTIVE DISPATCH")}
+      </span>
     </section>
   );
 }

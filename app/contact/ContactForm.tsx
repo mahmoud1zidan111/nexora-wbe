@@ -56,23 +56,23 @@ export function ContactForm() {
     >
       <div className="col-span-full flex min-w-0 items-start justify-between gap-4 border-b border-[var(--line-soft)] pb-4 md:pb-5">
         <span className="min-w-0 font-[var(--font-mono)] text-[11px] font-bold leading-[1.45] tracking-[0.14em] text-[var(--accent-2)] sm:text-[12px] md:text-[13px]">
-          INGRESS_FORM // PARAMETERS
+          {t("INGRESS_FORM // PARAMETERS")}
         </span>
         <span className="shrink-0 text-right font-[var(--font-mono)] text-[10px] font-bold leading-[1.45] tracking-[0.12em] text-[var(--faint)] sm:text-[11px] md:text-[12px]">
-          REV 4.2.0 // REQ_DISPATCH
+          {t("REV 4.2.0 // REQ_DISPATCH")}
         </span>
       </div>
 
       <label className={`${fieldLabelClass} md:col-span-1`}>
         <span className="flex items-center justify-between gap-3">
-          <span className="min-w-0">Full Name</span>
+          <span className="min-w-0">{t("Full Name")}</span>
           <b className="shrink-0 !font-bold !text-[var(--accent-2)]">
-            REQ_ID *
+            {t("REQ_ID")} *
           </b>
         </span>
         <input
           name="name"
-          placeholder="e.g., Alex Vance"
+          placeholder={t("e.g., Alex Vance")}
           aria-invalid={Boolean(errors.name)}
           className={inputClass}
         />
@@ -85,15 +85,15 @@ export function ContactForm() {
 
       <label className={`${fieldLabelClass} md:col-span-1`}>
         <span className="flex items-center justify-between gap-3">
-          <span className="min-w-0">Work Email</span>
+          <span className="min-w-0">{t("Work Email")}</span>
           <b className="shrink-0 !font-bold !text-[var(--accent-2)]">
-            COMM_URI *
+            {t("COMM_URI")} *
           </b>
         </span>
         <input
           name="email"
           type="email"
-          placeholder="alex@enterprise.domain"
+          placeholder={t("alex@enterprise.domain")}
           aria-invalid={Boolean(errors.email)}
           className={inputClass}
         />
@@ -106,14 +106,14 @@ export function ContactForm() {
 
       <label className={`${fieldLabelClass} col-span-full`}>
         <span className="flex items-center justify-between gap-3">
-          <span>Company</span>
+          <span>{t("Company")}</span>
           <b className="shrink-0 !font-bold !text-[var(--accent-2)]">
-            OPTIONAL
+            {t("OPTIONAL")}
           </b>
         </span>
         <input
           name="company"
-          placeholder="e.g., Nexus Data Systems"
+          placeholder={t("e.g., Nexus Data Systems")}
           className={inputClass}
         />
       </label>
@@ -121,9 +121,9 @@ export function ContactForm() {
       <div className="col-span-full grid grid-cols-1 gap-[clamp(16px,2vw,24px)] md:grid-cols-2">
         <label className={fieldLabelClass}>
           <span className="flex items-center justify-between gap-3">
-            <span>Service Interest</span>
+            <span>{t("Service Interest")}</span>
             <b className="shrink-0 !font-bold !text-[var(--accent-2)]">
-              TARGET_SPEC *
+              {t("TARGET_SPEC")} *
             </b>
           </span>
           <select
@@ -133,12 +133,14 @@ export function ContactForm() {
             className={selectClass}
           >
             <option value="" disabled>
-              Select architecture scope
+              {t("Select architecture scope")}
             </option>
-            <option>Professional Websites</option>
-            <option>Web Applications</option>
-            <option>Custom Software</option>
-            <option>SaaS Products</option>
+            <option value="Professional Websites">
+              {t("Professional Websites")}
+            </option>
+            <option value="Web Applications">{t("Web Applications")}</option>
+            <option value="Custom Software">{t("Custom Software")}</option>
+            <option value="SaaS Products">{t("SaaS Products")}</option>
           </select>
           {errors.service ? (
             <em className="!text-[var(--danger)] !text-[11px] !not-italic">
@@ -149,9 +151,9 @@ export function ContactForm() {
 
         <label className={fieldLabelClass}>
           <span className="flex items-center justify-between gap-3">
-            <span>Budget Range</span>
+            <span>{t("Budget Range")}</span>
             <b className="shrink-0 !font-bold !text-[var(--accent-2)]">
-              ALLOCATION *
+              {t("ALLOCATION")} *
             </b>
           </span>
           <select
@@ -161,12 +163,12 @@ export function ContactForm() {
             className={selectClass}
           >
             <option value="" disabled>
-              Select estimated tier
+              {t("Select estimated tier")}
             </option>
-            <option>$3k - $8k</option>
-            <option>$8k - $20k</option>
-            <option>$20k+</option>
-            <option>Retainer</option>
+            <option value="$3k - $8k">{t("$3k - $8k")}</option>
+            <option value="$8k - $20k">{t("$8k - $20k")}</option>
+            <option value="$20k+">{t("$20k+")}</option>
+            <option value="Retainer">{t("Retainer")}</option>
           </select>
           {errors.budget ? (
             <em className="!text-[var(--danger)] !text-[11px] !not-italic">
@@ -179,15 +181,17 @@ export function ContactForm() {
       <label className={`${fieldLabelClass} col-span-full`}>
         <span className="flex items-center justify-between gap-3">
           <span className="max-w-[72%] leading-[1.25]">
-            Project Scope &amp; Challenges
+            {t("Project Scope & Challenges")}
           </span>
           <b className="shrink-0 !font-bold !text-[var(--accent-2)]">
-            PAYLOAD *
+            {t("PAYLOAD")} *
           </b>
         </span>
         <textarea
           name="scope"
-          placeholder="Describe technical challenges, timeline, or architecture requirements..."
+          placeholder={t(
+            "Describe technical challenges, timeline, or architecture requirements...",
+          )}
           aria-invalid={Boolean(errors.scope)}
           className={textareaClass}
         />
@@ -200,17 +204,18 @@ export function ContactForm() {
 
       <div className="col-span-full grid grid-cols-1 gap-3 border border-[var(--line-soft)] bg-[#08111f] px-4 py-4 sm:px-5 sm:py-5 md:grid-cols-[minmax(145px,auto)_1fr] md:items-center md:gap-x-7 md:px-6 md:py-6">
         <strong className="font-[var(--font-mono)] text-[11px] font-bold leading-[1.4] tracking-[0.12em] text-[var(--accent-2)] sm:text-[12px]">
-          SECURE_DISPATCH
+          {t("SECURE_DISPATCH")}
         </strong>
         <span className="min-w-0 text-[14px] leading-[1.65] text-[var(--text)] sm:text-[15px] md:text-[16px]">
-          Direct end-to-end encrypted packet transmission to Nexora Systems lead
-          engineering.
+          {t(
+            "Direct end-to-end encrypted packet transmission to Nexora Systems lead engineering.",
+          )}
         </span>
       </div>
 
       <div className="col-span-full flex flex-col items-start justify-between gap-4 pt-1 sm:flex-row sm:items-center">
         <span className="font-[var(--font-mono)] text-[10px] font-bold leading-[1.4] tracking-[0.12em] text-[var(--faint)] sm:text-[11px]">
-          ENCRYPTION: AES-GCM 256-BIT
+          {t("ENCRYPTION: AES-GCM 256-BIT")}
         </span>
         <Button
           type="submit"
@@ -218,11 +223,14 @@ export function ContactForm() {
           className="w-full sm:w-auto auto !rounded-[6px] !bg-[var(--accent-2)] !px-4 !py-3.5 !font-[var(--font-mono)] !text-[12px] !font-bold !leading-[1.45] !tracking-[0.11em] !text-[#08111f] sm:!px-5 sm:!py-4 sm:!text-[13px] md:!text-[14px] lg:!px-6 lg:!py-4"
         >
           {state === "loading"
-            ? "Dispatching..."
+            ? t("Dispatching...")
             : state === "success"
-              ? "Request Received"
-              : "Start a Project"}
-          <HugeiconsIcon icon={ArrowRight01Icon} className="align-middle" />
+              ? t("Request Received")
+              : t("Start a Project")}
+          <HugeiconsIcon
+            icon={ArrowRight01Icon}
+            className="align-middle rtl-flip"
+          />
         </Button>
       </div>
 
@@ -231,7 +239,9 @@ export function ContactForm() {
           className="col-span-full !mb-0 rounded-[6px] border border-[rgba(110,216,255,.18)] bg-[rgba(110,216,255,.06)] px-4 py-3 !text-[13px] !leading-[1.6] !text-[var(--ok)]"
           role="status"
         >
-          Transmission received. A Nexora architect will review your packet.
+          {t(
+            "Transmission received. A Nexora architect will review your packet.",
+          )}
         </p>
       ) : null}
     </form>

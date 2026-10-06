@@ -20,8 +20,39 @@ export const metadata: Metadata = {
     default: "Nexora | Software Engineering & Digital Solutions Company",
     template: "%s | Nexora",
   },
+
+  icons: {
+    icon: "https://ik.imagekit.io/gmplak20xa/nexora/Gemini_Generated_Image_3aeekl3aeekl3aee%20(1).jfif",
+  },
+
   description:
     "Nexora is a software engineering and digital solutions company building resilient web platforms, custom software, and scalable products.",
+
+  openGraph: {
+    title: "Nexora | Software Engineering & Digital Solutions Company",
+    description:
+      "Nexora is a software engineering and digital solutions company building resilient web platforms, custom software, and scalable products.",
+    siteName: "Nexora",
+    type: "website",
+    images: [
+      {
+        url: "https://ik.imagekit.io/gmplak20xa/nexora/Gemini_Generated_Image_3aeekl3aeekl3aee%20(1).jfif",
+        width: 1200,
+        height: 630,
+        alt: "Nexora | Software Engineering & Digital Solutions Company",
+      },
+    ],
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Nexora | Software Engineering & Digital Solutions Company",
+    description:
+      "Nexora is a software engineering and digital solutions company building resilient web platforms, custom software, and scalable products.",
+    images: [
+      "https://ik.imagekit.io/gmplak20xa/nexora/Gemini_Generated_Image_3aeekl3aeekl3aee%20(1).jfif",
+    ],
+  },
 };
 
 export const viewport: Viewport = {

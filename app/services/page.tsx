@@ -53,13 +53,13 @@ export default function ServicesPage() {
           </section>
           <section className="page-section">
             <SectionHeading
-              eyebrow="01 // ARCHITECTURAL OFFERINGS"
+              eyebrow={t("01 // ARCHITECTURAL OFFERINGS")}
               title=""
-              marker="4 Systems Ready"
+              marker={t("4 Systems Ready")}
             />
             <div className="two-grid">
               {services.map((service) => (
-                <InfoCard key={service.title} {...service} />
+                <InfoCard key={service.title} {...service} title={t(service.title)} description={t(service.description)} tags={service.tags.map(t)} />
               ))}
             </div>
           </section>
@@ -82,46 +82,59 @@ export default function ServicesPage() {
           </section>
           <section className="page-section">
             <SectionHeading
-              eyebrow="02 // DELIVERABLES SPECIFICATION"
+              eyebrow={t("02 // DELIVERABLES SPECIFICATION")}
               title=""
-              marker="SPEC_VER: 2025.1"
+              marker={t("SPEC_VER: 2025.1")}
             />
             <div className="two-grid deliverable-grid">
               {deliverables.map(([title, description]) => (
-                <InfoCard key={title} title={title} description={description} />
+                <InfoCard key={title} title={t(title)} description={t(description)} />
               ))}
             </div>
           </section>
           <section className="page-section">
             <SectionHeading
-              eyebrow="03 // ENGAGEMENT PROTOCOLS"
+              eyebrow={t("03 // ENGAGEMENT PROTOCOLS")}
               title=""
-              marker="Structured Collaboration"
+              marker={t("Structured Collaboration")}
             />
             <div className="two-grid">
               <InfoCard
-                number="MODEL 01 // MILESTONE PROTOCOL"
-                title="Project-Based Execution"
-                description="Scoped milestone delivery for well-defined technical specifications and product builds."
+                number={t("MODEL 01 // MILESTONE PROTOCOL")}
+                title={t("Project-Based Execution")}
+                description={t("Scoped milestone delivery for well-defined technical specifications and product builds.")}
                 tags={[
-                  "Explicit deliverables mapped to verification criteria",
-                  "Fixed timeline windows",
-                  "Formal release signoffs",
+                  t("Explicit deliverables mapped to verification criteria"),
+                  t("Fixed timeline windows"),
+                  t("Formal release signoffs"),
                 ]}
               >
-                <Button href="/contact">Engage Milestones</Button>
+                <span className="w-full sm:w-auto auto !pt-4 "></span>
+
+                <Button
+                  href="/contact"
+                  className="w-full sm:w-auto auto !bg-[var(--accent-2)] !text-[#08111f]  "
+                >
+                  {t("Engage Milestones")}
+                </Button>
               </InfoCard>
               <InfoCard
-                number="MODEL 02 // RETAINER PROTOCOL"
-                title="Dedicated Retainer"
-                description="Ongoing architectural leadership, sprint-based feature development, and continuous platform evolution."
+                number={t("MODEL 02 // RETAINER PROTOCOL")}
+                title={t("Dedicated Retainer")}
+                description={t("Ongoing architectural leadership, sprint-based feature development, and continuous platform evolution.")}
                 tags={[
-                  "Sprint priority",
-                  "Direct executive advisory",
-                  "Emergency incident response",
+                  t("Sprint priority"),
+                  t("Direct executive advisory"),
+                  t("Emergency incident response"),
                 ]}
               >
-                <Button href="/contact">Retain Advisory</Button>
+                <span className="w-full sm:w-auto auto !pt-4 "></span>
+                <Button
+                  href="/contact"
+                  className="w-full sm:w-auto auto !bg-[var(--accent-2)] !text-[#08111f]  "
+                >
+                  {t("Retain Advisory")}
+                </Button>
               </InfoCard>
             </div>
           </section>

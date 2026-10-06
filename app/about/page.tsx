@@ -24,14 +24,10 @@ export default function AboutPage() {
                 "We design and build resilient digital foundations for enterprises and forward-thinking platforms.",
               )}
             </p>
-            <div className="hero-status">
-              <span>LOC: SFO // GLOBAL</span>
-              <b>SYS_STATUS: ACTIVE</b>
-            </div>
           </section>
-          <section className="two-grid profile-grid">
-            <article className="profile-card">
-              <p className="eyebrow">PROFILE // 01</p>
+          <section className="  !w-full sm:w-auto auto">
+            <article className="profile-card !w-full sm:w-auto auto">
+              <p className="eyebrow">{t("PROFILE // 01")}</p>
               <p>
                 {t(
                   "Nexora is a digital architecture and software engineering studio dedicated to eliminating friction from digital complexity. We specialize in robust system design, scalable web infrastructure, and high-fidelity product engineering that withstands demanding real-world conditions.",
@@ -39,19 +35,15 @@ export default function AboutPage() {
               </p>
               <div className="mini-stats">
                 <span>
-                  PARADIGM <b>Deterministic</b>
+                  {t("PARADIGM")} <b>{t("Deterministic")}</b>
                 </span>
                 <span>
-                  COMPLIANCE <b>ISO/IEC 27001</b>
+                  {t("COMPLIANCE")} <b>ISO/IEC 27001</b>
                 </span>
                 <span>
-                  FAULT MATRIX <b>Zero Leakage</b>
+                  {t("FAULT MATRIX")} <b>{t("Zero Leakage")}</b>
                 </span>
               </div>
-            </article>
-            <article className="profile-card">
-              <h2>System Geometry</h2>
-              <SystemVisual label="NODE_M" />
             </article>
           </section>
           <section className="page-section">
@@ -77,16 +69,16 @@ export default function AboutPage() {
           </section>
           <section className="page-section banded">
             <div className="section-heading">
-              <p className="eyebrow">METHODOLOGY // PHILOSOPHY</p>
-              <h2>Systemic principles for faultless delivery.</h2>
+              <p className="eyebrow">{t("METHODOLOGY // PHILOSOPHY")}</p>
+              <h2>{t("Systemic principles for faultless delivery.")}</h2>
             </div>
-            <div className="principle-grid">
+            <div className="principle-grid bordered 1px border-white/10">
               {principles.map((item) => (
                 <InfoCard
                   key={item.title}
                   number={`PRINCIPLE ${item.number}`}
-                  title={item.title}
-                  description={item.description}
+                  title={t(item.title)}
+                  description={t(item.description)}
                   meta={`CRIT_${item.number}`}
                 />
               ))}

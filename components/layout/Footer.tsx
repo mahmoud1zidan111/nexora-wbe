@@ -32,8 +32,11 @@ export function Footer() {
             href="/contact"
             className="w-full sm:w-auto auto !rounded-[6px] !bg-[var(--accent-2)] !px-4 !py-3.5 !font-[var(--font-mono)] !text-[12px] !font-bold !leading-[1.45] !tracking-[0.11em] !text-[#08111f] sm:!px-5 sm:!py-4 sm:!text-[13px] md:!text-[14px] lg:!px-6 lg:!py-4"
           >
-            {t("START A PROJECT")}
-            <HugeiconsIcon icon={ArrowRight01Icon} className="align-middle" />
+            {t("Start a Project")}
+            <HugeiconsIcon
+              icon={ArrowRight01Icon}
+              className="align-middle rtl-flip"
+            />
           </Button>
         </div>
         <div>
@@ -56,9 +59,9 @@ export function Footer() {
         </div>
       </div>
       <div className="page-container footer-bottom">
-        <span>© 2025 NEXORA SYSTEMS ARCHITECTURE. SYS_VER 4.2.0</span>
+        <span>{t("© 2025 NEXORA SYSTEMS ARCHITECTURE. SYS_VER 4.2.0")}</span>
         <span>
-          <i /> OPERATIONAL CLUSTER STABLE
+          <i /> {t("OPERATIONAL CLUSTER STABLE")}
         </span>
       </div>
     </footer>

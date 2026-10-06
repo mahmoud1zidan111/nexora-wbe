@@ -11,8 +11,10 @@ import { HugeiconsIcon } from "@hugeicons/react";
 import { ArrowRight01Icon } from "@hugeicons/core-free-icons";
 // import images from "../../imgs/imges.json";
 export function Logo({ compact = false }: { compact?: boolean }) {
+  const { t } = useLanguage();
+
   return (
-    <Link className="brand bg-none" href="/" aria-label="Nexora home">
+    <Link className="brand bg-none" href="/" aria-label={t("Nexora home")}>
       <span className="brand-mark bg-none" aria-hidden="true">
         <img
           src="https://res.cloudinary.com/dricl4jwn/image/upload/v1790389289/layer-3d-letter-n-logo_toqni0.png"
@@ -21,7 +23,7 @@ export function Logo({ compact = false }: { compact?: boolean }) {
       </span>
       <span className="brand-copy">
         <strong>Nexora</strong>
-        <em>{compact ? "SYS_LAYER" : "Build Your Digital Future."}</em>
+        <em>{compact ? "SYS_LAYER" : t("Build Your Digital Future.")}</em>
       </span>
     </Link>
   );
@@ -65,13 +67,16 @@ export function Navbar() {
               className=" w-full sm:w-auto auto !rounded-[5px] !bg-[var(--accent-2)] !px-4 !py-3.5 !font-[var(--font-mono)] !text-[12px] !font-bold !leading-[1.45] !tracking-[0.11em] !text-[#08111f] sm:!px-5 sm:!py-4 sm:!text-[13px] md:!text-[14px] lg:!px-6 lg:!py-4"
             >
               {t("Start a Project")}
-              <HugeiconsIcon icon={ArrowRight01Icon} className="align-middle" />
+              <HugeiconsIcon
+                icon={ArrowRight01Icon}
+                className="align-middle rtl-flip"
+              />
             </Button>
           </div>
           <button
             className="menu-button"
             type="button"
-            aria-label="Open navigation menu"
+            aria-label={t("Open navigation menu")}
             aria-expanded={open}
             onClick={() => setOpen((value) => !value)}
           >
@@ -114,7 +119,10 @@ export function Navbar() {
           className="w-full sm:w-auto auto !rounded-[5px] !bg-[var(--accent-2)] !px-4 !py-3.5 !font-[var(--font-mono)] !text-[12px] !font-bold !leading-[1.45] !tracking-[0.11em] !text-[#08111f] sm:!px-5 sm:!py-4 sm:!text-[13px] md:!text-[14px] lg:!px-6 lg:!py-4"
         >
           {t("Start a Project")}
-          <HugeiconsIcon icon={ArrowRight01Icon} className="align-middle" />
+          <HugeiconsIcon
+            icon={ArrowRight01Icon}
+            className="align-middle rtl-flip"
+          />
         </Button>
       </div>
       <nav className="bottom-nav" aria-label="Mobile quick navigation">
@@ -124,7 +132,7 @@ export function Navbar() {
             href={item.href}
             key={item.href}
           >
-            <HugeiconsIcon icon={item.icon} />
+            <HugeiconsIcon icon={item.icon} className="align-middle rtl-flip" />
             {t(item.label)}
           </Link>
         ))}

@@ -67,7 +67,7 @@ export function Capabilities() {
   return (
     <section className="page-section">
       <SectionHeading
-        eyebrow="CAPABILITIES // CORE SPECS"
+        eyebrow={t("CAPABILITIES // CORE SPECS")}
         title={t("Engineered Foundations")}
         description={t(
           "Structural rigor engineered into every digital deployment for resilient business operation.",
@@ -92,7 +92,7 @@ export function ServicesPreview() {
   return (
     <section className="page-section banded">
       <SectionHeading
-        eyebrow="DISCIPLINES // SERVICE OFFERINGS"
+        eyebrow={t("DISCIPLINES // SERVICE OFFERINGS")}
         title={t("Modular Delivery")}
         description={t(
           "Strict technical standards across core development capabilities.",
@@ -118,16 +118,21 @@ export function SelectedWork() {
   return (
     <section className="page-section">
       <SectionHeading
-        eyebrow="SELECTED PROJECTS // 01 - 04"
+        eyebrow={t("SELECTED PROJECTS // 01 - 04")}
         title={t("Verified Deployments")}
-        marker="4 PRODUCTION PROOFS ONLINE"
+        marker={t("4 PRODUCTION PROOFS ONLINE")}
       />
       <div className="project-preview-grid">
         {projects.slice(0, 4).map((project) => (
           <article className="project-minicard" key={project.title}>
             <div className="card-topline">
-              <span>DEPLOYMENT // {project.number}</span>
-              <span>{project.category}</span>
+              <span>
+                {t("DEPLOYMENT // {number}").replace(
+                  "{number}",
+                  project.number,
+                )}
+              </span>
+              <span>{t(project.category)}</span>
             </div>
             <h3>{t(project.title)}</h3>
             <p>{t(project.description)}</p>
@@ -144,7 +149,7 @@ export function SelectedWork() {
                 {t("View Demo")}
                 <HugeiconsIcon
                   icon={ArrowRight01Icon}
-                  className="align-middle"
+                  className="align-middle rtl-flip"
                 />
               </Button>
               <Button href="/work" variant="secondary">
@@ -164,7 +169,7 @@ export function Process() {
   return (
     <section className="page-section banded">
       <SectionHeading
-        eyebrow="METHODOLOGY // EXECUTION PIPELINE"
+        eyebrow={t("METHODOLOGY // EXECUTION PIPELINE")}
         title={t("How We Work")}
         description={t(
           "Deterministic 4-phase execution framework designed to eliminate friction and ensure predictable shipping cadence.",
@@ -190,13 +195,13 @@ export function Products() {
   return (
     <section className={"page-section  "}>
       <SectionHeading
-        eyebrow="NEXORA PRODUCTS // BUILT IN-HOUSE"
+        eyebrow={t("NEXORA PRODUCTS // BUILT IN-HOUSE")}
         title={t("Products built from real business needs.")}
       />
       <article className="product-panel">
         <div className="mt-[-20px]">
           <p className="eyebrow boxed">
-            PROPRIETARY ENGINE&nbsp;&nbsp; SYS_ID // NEX-SC-01
+            {t("PROPRIETARY ENGINE")}&nbsp;&nbsp; SYS_ID // NEX-SC-01
           </p>
           <h3>{t("Smart Cafe")}</h3>
           <p>
@@ -205,9 +210,9 @@ export function Products() {
             )}
           </p>
           <div className="tag-row">
-            <span>Real-time Sync</span>
-            <span>Kitchen Display</span>
-            <span>Contactless Pay</span>
+            <span>{t("Real-time Sync")}</span>
+            <span>{t("Kitchen Display")}</span>
+            <span>{t("Contactless Pay")}</span>
           </div>
           <Button
             href="/products/smart-cafe"
@@ -215,22 +220,25 @@ export function Products() {
               "mt-5 align-middle !bg-[var(--accent-2)]     !text-[#08111f] "
             }
           >
-            Explore Product Overview
-            <HugeiconsIcon icon={ArrowRight01Icon} className="align-middle" />
+            {t("Explore Product Overview")}
+            <HugeiconsIcon
+              icon={ArrowRight01Icon}
+              className="align-middle rtl-flip "
+            />
           </Button>
         </div>
         <div className="terminal-card">
           <span>
-            TERMINAL STATUS <b>ACTIVE // 0.04s</b>
+            {t("TERMINAL STATUS")} <b>ACTIVE // 0.04s</b>
           </span>
           <span>
-            ORDER SYNC ENGINE <b>100% ONLINE</b>
+            {t("ORDER SYNC ENGINE")} <b>100% ONLINE</b>
           </span>
           <span>
-            KDS DISPATCH QUEUE <b>0 PENDING</b>
+            {t("KDS DISPATCH QUEUE")} <b>0 PENDING</b>
           </span>
           <span>
-            PAYMENT TERMINAL API <b>READY</b>
+            {t("PAYMENT TERMINAL API")} <b>READY</b>
           </span>
         </div>
       </article>
@@ -243,7 +251,7 @@ export function WhyNexora() {
   return (
     <section className="page-section banded">
       <SectionHeading
-        eyebrow="PILLARS // VALUE DISCIPLINE"
+        eyebrow={t("PILLARS // VALUE DISCIPLINE")}
         title={t("Why Nexora")}
         description={t(
           "Structural advantages designed for teams who value engineered integrity over superficial speed.",

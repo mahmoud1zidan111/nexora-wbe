@@ -111,42 +111,72 @@ export const projects = [
     number: "01",
     title: "Doctor AI",
     category: "Healthcare Intelligence",
+    imgUrl:
+      "https://ik.imagekit.io/gmplak20xa/portfolio/projects/Doctor_AI.jpg?updatedAt=1780363059324",
     description:
       "Doctor AI is a React and Redux medical assistant interface that analyzes user symptoms and presents smart preliminary health insights through a responsive Tailwind CSS experience.",
     tags: ["JavaScript", "React", "Redux", "Tailwind CSS", "AI API"],
+    link: {
+      code: "https://github.com/mahmoud1zidan111/Doctor-AI",
+      liveDemo: "https://mahmoud1zidan111.github.io/Doctor-AI/",
+    },
   },
 
   {
     number: "02",
     title: "Nexcent",
     category: "SaaS Platform",
+    imgUrl:
+      "https://ik.imagekit.io/gmplak20xa/portfolio/projects/Nexcent.jpg?updatedAt=1780363059597",
     description:
       "Nexcent is a modern React SaaS landing page focused on responsive layouts, clean UI sections, smooth GSAP animations, and conversion-friendly frontend implementation.",
     tags: ["JavaScript", "React", "Tailwind CSS", "GSAP"],
+    link: {
+      code: "https://github.com/mahmoud1zidan111/Nexcent",
+      liveDemo: "https://nexcent-sooty.vercel.app/",
+    },
   },
   {
     number: "03",
     title: "Career Launch Session",
     category: "Career.Edu",
+    imgUrl:
+      "https://ik.imagekit.io/gmplak20xa/portfolio/projects/Career_Launch.jpg?updatedAt=1780363059217",
     description:
       "Career Launch Session is a responsive career landing page built for students and junior developers, with structured content, Tailwind CSS styling, and smooth GSAP motion.",
     tags: ["JavaScript", "HTML5", "Tailwind CSS", "GSAP"],
+    link: {
+      code: "https://github.com/mahmoud1zidan111/Career-Launch-Session",
+      liveDemo: "https://career-launch-session.vercel.app/",
+    },
   },
   {
     number: "04",
     title: "Bright Path",
     category: "Pathway.Dev",
+    imgUrl:
+      "https://ik.imagekit.io/gmplak20xa/portfolio/projects/Bright_Path.jpg?updatedAt=1780363059393",
     description:
       "Bright Path is an education and career development frontend project designed to guide users through learning paths with a polished responsive interface.",
     tags: ["JavaScript", "HTML5", "Tailwind CSS", "GSAP"],
+    link: {
+      code: "https://github.com/mahmoud1zidan111/Bright-Path",
+      liveDemo: "https://bright-path-pi.vercel.app/",
+    },
   },
   {
     number: "05",
     title: "Product Management System",
     category: "ERP.Inventory",
+    imgUrl:
+      "https://ik.imagekit.io/gmplak20xa/portfolio/projects/metor_pack.jpg?updatedAt=1780363059066",
     description:
       "Product Management System is a JavaScript dashboard for organizing inventory, managing product data, and presenting business workflows through a clean admin interface.",
     tags: ["JavaScript", "HTML5", "Tailwind CSS"],
+    link: {
+      code: "https://github.com/mahmoud1zidan111/Product-management",
+      liveDemo: "https://mahmoud1zidan111.github.io/Product-management/",
+    },
   },
 ];
 
@@ -204,6 +234,11 @@ export const principles = [
     code: "LINEAR EXPANSION",
   },
 ];
+
+export const smartCafeImages = {
+  image1:
+    "https://ik.imagekit.io/gmplak20xa/nexora/Smart%20Caf%C3%A9%20Dashboard%20in%20Action.png",
+};
 
 export const smartCafeFeatures = [
   "Real-time order synchronization",

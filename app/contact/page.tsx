@@ -3,7 +3,6 @@
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
 import { PageContainer } from "@/components/layout/PageContainer";
-import { SystemVisual } from "@/components/visual/SystemVisual";
 import { ContactForm } from "./ContactForm";
 import { useLanguage } from "@/components/i18n/LanguageProvider";
 import { HugeiconsIcon } from "@hugeicons/react";
@@ -67,7 +66,7 @@ export default function ContactPage() {
             </p>
 
             <span className="inline-flex w-full max-w-[340px] items-center rounded-[8px] border border-[var(--line)] bg-[var(--surface)] px-4 py-4 font-[var(--font-mono)] text-[10px] font-bold leading-[1.5] tracking-[0.12em] text-[var(--accent-2)] sm:px-5 sm:py-5 sm:text-[11px] md:text-[12px] lg:justify-self-end">
-              TRANSMISSION_NODE: DIRECT_ONLINE
+              {t("TRANSMISSION_NODE: DIRECT_ONLINE")}
             </span>
           </section>
 
@@ -78,7 +77,7 @@ export default function ContactPage() {
               <div className="mt-5 grid grid-cols-1 gap-2.5 sm:grid-cols-3 sm:gap-3 lg:mt-6">
                 <span className="rounded-[6px] border border-[var(--line-soft)] bg-[rgba(128,146,171,.06)] px-4 py-3.5 font-[var(--font-mono)] text-[10px] font-bold leading-[1.45] tracking-[0.11em] text-[var(--faint)] sm:px-3 sm:py-4">
                   <HugeiconsIcon
-                    className="inline align-[-1px]   mr-2 "
+                    className="inline align-[-1px]   mr-2  rtl-flip"
                     icon={ArrowRight01Icon}
                     size={20}
                     color="#69D7FF"
@@ -87,19 +86,19 @@ export default function ContactPage() {
                   <b className="block !text-[15px] !leading-[1.2] !text-[var(--accent-2)]">
                     24h
                   </b>
-                  Response_Velocity
+                  {t("Response_Velocity")}
                 </span>
                 <span className="rounded-[6px] border border-[var(--line-soft)] bg-[rgba(128,146,171,.06)] px-4 py-3.5 font-[var(--font-mono)] text-[10px] font-bold leading-[1.45] tracking-[0.11em] text-[var(--faint)] sm:px-3 sm:py-4">
                   <b className="block !text-[15px] !leading-[1.2] !text-[var(--accent-2)]">
                     Tier IV
                   </b>
-                  Security_Grade
+                  {t("Security_Grade")}
                 </span>
                 <span className="rounded-[6px] border border-[var(--line-soft)] bg-[rgba(128,146,171,.06)] px-4 py-3.5 font-[var(--font-mono)] text-[10px] font-bold leading-[1.45] tracking-[0.11em] text-[var(--faint)] sm:px-3 sm:py-4">
                   <b className="block !text-[15px] !leading-[1.2] !text-[var(--accent-2)]">
                     L6_ARCH
                   </b>
-                  Routing_Target
+                  {t("Routing_Target")}
                 </span>
               </div>
             </div>

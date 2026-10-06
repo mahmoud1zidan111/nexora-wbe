@@ -48,8 +48,14 @@ body {
   overflow-x: hidden;
 }
 
+/* icon right-to-left  because of translation */
+html[dir="rtl"] .rtl-flip {
+  transform: scaleX(-1);
+}
+/* ====================== */
+
 html[dir="rtl"] body {
-  font-family: var(--font-ui);
+  font-family: var(--font-arabic), var(--font-sans);
 }
 html[dir="rtl"] h1,
 html[dir="rtl"] h2,
