@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://nexora-wbe.vercel.app";
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://nexora-solutions-eg.vercel.app";
 
 const socialImage =
   "https://ik.imagekit.io/gmplak20xa/nexora/Gemini_Generated_Image_3aeekl3aeekl3aee%20(1).jfif";
