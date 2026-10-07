@@ -85,6 +85,7 @@ export const metadata: Metadata = {
   publisher: "Nexora",
   authors: [{ name: "Nexora" }],
   creator: "Nexora",
+
   title: {
     default:
       "Nexora | Software Company in Cairo, Egypt | Web Development & Digital Solutions",
@@ -95,6 +96,10 @@ export const metadata: Metadata = {
   },
   description:
     "Nexora is a software company in Cairo, Egypt delivering custom software, web application development, SaaS products, website design, and digital transformation solutions.",
+
+  verification: {
+    google: "5NttTNCXYLTgZzr9sQGHEIThnU7ZpgpzkuJlHUuv2Ys",
+  },
   keywords: [
     "Nexora",
     "software company in Cairo",
